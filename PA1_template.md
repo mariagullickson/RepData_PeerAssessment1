@@ -53,12 +53,13 @@ with a step average of 206.1698.
 
 
 ## Imputing missing values
+Missing values will be filled in by using the average number of steps for
+that time interval from all the days that have a value for the interval.
+
 
 ```r
 numMissingValues <- sum(is.na(activity$steps))
 
-# make a copy of the data, filling in missing values with the average number
-# of steps for that time interval
 imputedActivity <- activity
 imputedActivity$steps <- ifelse(
     is.na(imputedActivity$steps),
